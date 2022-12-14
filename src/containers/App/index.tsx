@@ -1,6 +1,7 @@
 import { RenderRemoteData } from "aidbox-react/lib/components/RenderRemoteData";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { SignIn } from "../../components/SignIn";
+import MainLayout from "../MainLayout";
 import { useApp } from "./hooks";
 
 function App() {
@@ -17,13 +18,12 @@ function App() {
         )}
       >
         {(user) => {
-          console.log("App --- user", user);
           return (
             <Routes>
               {user ? (
                 <>
-                  {/* <Route path="main" element={<Main />} /> */}
-                  <Route path="*" element={<Navigate to="/signin" />} />
+                  <Route path="/main" element={<MainLayout />} />
+                  <Route path="*" element={<Navigate to="/main" />} />
                 </>
               ) : (
                 <>

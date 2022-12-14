@@ -20,18 +20,18 @@ export function signin(data: SigninBody): Promise<RemoteDataResult<AppToken>> {
     data: {
       username: data.email,
       password: data.password,
-      client_id: "SPA",
-      client_secret: "123456",
+      client_id: "test-client",
+      client_secret: "verysecret",
       grant_type: "password",
     },
   });
 }
 
 export const setToken = (token: Token) => {
-  localStorage.setItem("token", JSON.stringify(token));
+  localStorage.setItem("token", token.access_token);
 };
 
-export function getUserInfo() {
+export async function getUserInfo() {
   return service({
     method: "GET",
     url: "/auth/userinfo",
