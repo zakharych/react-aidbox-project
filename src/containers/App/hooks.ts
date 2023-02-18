@@ -14,13 +14,9 @@ export function useApp() {
       return success(null);
     }
 
-    console.log("appToken - 1", appToken);
-
     setInstanceToken({ access_token: appToken, token_type: "Bearer" });
 
     const response = await getUserInfo();
-
-    console.log("response -1 ", response);
 
     if (isSuccess(response)) {
     } else {

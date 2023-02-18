@@ -1,7 +1,5 @@
 import { setInstanceBaseURL } from "aidbox-react/lib/services/instance";
 
-// import config from './config';
+const spaConfig = (window as any).__SPACONFIG__;
 
-export const init = (baseURL?: string): void => {
-  setInstanceBaseURL("http://localhost:8888");
-};
+setInstanceBaseURL(spaConfig.baseURL);
